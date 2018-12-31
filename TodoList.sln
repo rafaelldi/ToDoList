@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{92BF35FC-749E-430B-9645-7BE342A922E4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Web", "src\TodoList.Web\TodoList.Web.csproj", "{5D70F2C7-ADB3-4421-9398-9DC7CADF0D46}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{557636F5-B45C-44CA-8BBA-91B9D4218B9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Web.Tests", "test\TodoList.Web.Tests\TodoList.Web.Tests.csproj", "{817EDE68-2977-4F3B-BB31-161C6D741483}"
 EndProject
