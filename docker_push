@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "$HEROKU_TOKEN" | docker login -u "_" --password-stdin
-docker tag todolist registry.heroku.com/$HEROKU_APP_NAME/web:1.$TRAVIS_BUILD_NUMBER;
-docker push registry.heroku.com/$HEROKU_APP_NAME/web:1.$TRAVIS_BUILD_NUMBER;
+docker tag todolist registry.heroku.com/$HEROKU_APP_NAME/web;
+docker push registry.heroku.com/$HEROKU_APP_NAME/web;
