@@ -22,6 +22,4 @@ RUN dotnet publish ./src/TodoList.Web/TodoList.Web.csproj -c Release -o ../../di
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
 WORKDIR /app
 COPY --from=builder /sln/dist .
-ENTRYPOINT ["dotnet", "TodoList.Web.dll"]
-
-HEALTHCHECK --interval=1m --timeout=10s CMD curl -f http://localhost:80/healthcheck || exit 1
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet TodoList.Web.dll
