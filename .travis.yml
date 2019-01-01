@@ -9,7 +9,6 @@ branches:
 
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  - docker login -u _ --password=$HEROKU_TOKEN registry.heroku.com
 
 script:
   - docker build -t todolist .
@@ -17,8 +16,7 @@ script:
 deploy:
   - provider: script
     script:
-      docker tag todolist registry.heroku.com/$HEROKU_APP_NAME/web:1.$TRAVIS_BUILD_NUMBER;
-      docker push registry.heroku.com/$HEROKU_APP_NAME/web:1.$TRAVIS_BUILD_NUMBER;
+      bash docker_push
       heroku container:release web --app $HEROKU_APP_NAME
     on:
       branch: master
