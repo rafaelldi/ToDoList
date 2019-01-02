@@ -11,9 +11,9 @@ script:
 deploy:
   - provider: script
     script:
-      bash docker_push
+      ./docker_push.sh
     on:
       branch: master
       
 after_deploy:
-  - bash heroku_release
+  - ./heroku_release.sh
