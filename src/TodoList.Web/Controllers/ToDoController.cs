@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Web.Models;
 using TodoList.Web.Services;
-using Microsoft.AspNetCore.Http;
 
 namespace TodoList.Web.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ToDoController : ControllerBase
     {
