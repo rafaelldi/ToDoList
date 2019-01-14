@@ -24,7 +24,7 @@ namespace TodoList.Web.Services
         }
 
         public List<ToDoItem> Get() => _toDoItems.Values.ToList();
-        
+
         public ToDoItem Get(int id) => _toDoItems[id];
 
         public bool Contains(int id) => _toDoItems.ContainsKey(id);
