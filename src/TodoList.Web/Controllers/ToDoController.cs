@@ -44,11 +44,13 @@ namespace TodoList.Web.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ToDoItem))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
-        public ActionResult<ToDoItem> CreateItem(ToDoItem toDoItem)
+        public ActionResult<ToDoItem> CreateItem(ToDoItem toDoItem, ApiVersion apiVersion)
         {
-            _toDoService.AddItem(toDoItem.Id, toDoItem);
+            var newId = _toDoService.GetNewId();
+            toDoItem.Id = newId;
+            _toDoService.AddItem(newId, toDoItem);
 
-            return CreatedAtAction("GetItem", new {id = toDoItem.Id}, toDoItem);
+            return CreatedAtAction(nameof(GetItem), new {id = toDoItem.Id, version = apiVersion.ToString()}, toDoItem);
         }
 
         [HttpPut("{id}")]

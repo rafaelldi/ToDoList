@@ -23,6 +23,8 @@ namespace TodoList.Web.Services
             _toDoItems.Remove(id);
         }
 
+        public int GetNewId() => _toDoItems.Count;
+
         public List<ToDoItem> Get() => _toDoItems.Values.ToList();
 
         public ToDoItem Get(int id) => _toDoItems[id];
