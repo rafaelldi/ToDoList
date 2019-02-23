@@ -45,6 +45,12 @@ namespace TodoList.Web
                         });
                     }
                 });
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton(new ToDoService());
         }
@@ -68,6 +74,7 @@ namespace TodoList.Web
                             description.GroupName.ToUpperInvariant());
                     }
                 });
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }
